@@ -53,5 +53,5 @@ ansible --version
 echo "Running Ansible playbook..."
 ansible-playbook -i inventory.yaml "$PLAYBOOK_PATH"
 
-rm -rf *yaml*
+# rm -rf *yaml*
 rm -rf *cfg*
