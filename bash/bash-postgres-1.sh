@@ -6,7 +6,6 @@ echo $local_ip
 ssh_user=$(whoami)
 echo $ssh_user
 
-
 # Get playbook from Github
 wget https://raw.githubusercontent.com/emiakia/aws_components_ec2_postgres_install_and_ha/main/ansible/s00install-postgres-for-standby.yaml
 wget https://raw.githubusercontent.com/emiakia/aws_components_ec2_postgres_install_and_ha/main/ansible/s01installation.yaml
@@ -33,7 +32,6 @@ echo "Private IP: $ANOTHER_PRIVATE_IP"
 
 sed -i "s/PPP/$ANOTHER_PRIVATE_IP/" vars.yaml
 sed -i "s/SSS/$local_ip/" vars.yaml
-sed -i "s/UUU/$ssh_user/" vars.yaml
 
 # Define the path to your Ansible playbook
 PLAYBOOK_PATH="./s00install-postgres-for-standby.yaml"
@@ -55,5 +53,5 @@ ansible --version
 echo "Running Ansible playbook..."
 ansible-playbook -i inventory.yaml "$PLAYBOOK_PATH"
 
-# rm -rf *yaml*
+rm -rf *yaml*
 rm -rf *cfg*

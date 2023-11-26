@@ -33,7 +33,6 @@ echo "Private IP: $ANOTHER_PRIVATE_IP"
 
 sed -i "s/PPP/$local_ip/" vars.yaml
 sed -i "s/SSS/$ANOTHER_PRIVATE_IP/" vars.yaml
-sed -i "s/UUU/$ssh_user/" vars.yaml
 
 
 
@@ -57,5 +56,5 @@ ansible --version
 echo "Running Ansible playbook..."
 ansible-playbook -i inventory.yaml "$PLAYBOOK_PATH"
 
-# rm -rf *yaml*
+rm -rf *yaml*
 rm -rf *cfg*

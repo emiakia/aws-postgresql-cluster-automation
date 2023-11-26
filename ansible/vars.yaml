@@ -9,13 +9,6 @@
 ip_server1: 'PPP'
 ip_server2: 'SSS'
 
-
-# SSH configuration
-# ssh_user: "UUU"
-
-# ssh_key_path: "/home/{{ ssh_user }}/.ssh/id_rsa.pub"
-
-
 # # User and Password of MySQL 
 new_user: "kiausr"
 new_user_password: "123"

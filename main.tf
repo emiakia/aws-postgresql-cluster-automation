@@ -12,6 +12,7 @@ module "security_group" {
   tags          = var.tags
 }
 
+
 # # IAM Role
 # resource "aws_iam_role" "ec2_role" {
 #   name = "MyRoleForGetTag"
