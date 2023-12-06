@@ -44,7 +44,7 @@ tags = {
 #aws Instance Variables
 
 # ami_id        = "ami-071878317c449ae48" #amazon
-ami_id        = "ami-0e04bcbe83a83792e"  #ubuntu
+ami_id        = "ami-0e04bcbe83a83792e" #ubuntu
 instance_type = "t2.micro"
 key_name      = "devKey"
 
@@ -55,7 +55,7 @@ default_sg   = "sg-0a28a74fed00b7df4"
 backend-bucket = "dev-terraform-tutorial"
 backend-key    = "build/airflow/terraform.tfstate"
 created_by     = "Terraform"
-user_data = <<-EOF
+user_data      = <<-EOF
             #!/bin/bash
             yum update -y
             yum install -y httpd

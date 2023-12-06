@@ -45,17 +45,17 @@ module "security_group" {
 
 
 module "ec2" {
-  source          = "./modules/ec2"
-  ami             = var.ami_id
-  instance_type   = var.instance_type
-  
+  source        = "./modules/ec2"
+  ami           = var.ami_id
+  instance_type = var.instance_type
+
   security_groups = var.create_sg ? [module.security_group.id] : [var.default_sg]
   key_name        = var.key_name
   count_instance  = var.count_instance
   machine_name    = var.machine_name
-  tags       = var.tags
-  created_by = var.created_by
-  ec2_role         = "MyRoleForGetTag"  # Pass the IAM role to the module
+  tags            = var.tags
+  created_by      = var.created_by
+  ec2_role        = "MyRoleForGetTag" # Pass the IAM role to the module
 
   # user_data = var.user_data
   # user_data = file("./bash/bash-postgres-${count.index}.sh")
