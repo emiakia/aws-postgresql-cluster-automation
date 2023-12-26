@@ -11,6 +11,7 @@
       ansible.builtin.systemd:
         name: postgresql
         state: stopped
+        
     - name: Create PostgreSQL archive directory
       file:
         path: /var/lib/postgresql/16/main/archive
@@ -19,9 +20,19 @@
         group: postgres
         mode: '0770'
 
-    - name: Remove all contents of PostgreSQL main directory
-      become: yes
-      command: rm -rf /var/lib/postgresql/16/main/
+    - name: Change wal_level = replica
+      lineinfile:
+        path: /etc/postgresql/16/main/postgresql.conf
+        regexp: "#listen_addresses = 'localhost'"
+        line: "listen_addresses = '*'"
+        state: present
+
+    - name: Change hot_standby
+      lineinfile:
+        path: /etc/postgresql/16/main/postgresql.conf
+        regexp: "#hot_standby = on"
+        line: "hot_standby = on"
+        state: present
 
     - name: ADD to  pg_hba 
       lineinfile:
@@ -30,15 +41,19 @@
         create: yes
       loop:
         - { line: 'host    all             all             0.0.0.0/0               md5' }
-        - { line: '#       user-name		                   standby-IP' }
+        - { line: '#       user-name		                   Primary-IP' }
         - { line: 'host    replication     replusr         {{ ip_server1 }}/32      trust' }
+
+    - name: Remove all contents of PostgreSQL main directory
+      become: yes
+      command: rm -rf /var/lib/postgresql/16/main/
 
     - name: Run pg_basebackup as postgres user
       become: yes
       become_user: postgres
       command: pg_basebackup -R -h {{ ip_server1 }} -D /var/lib/postgresql/16/main -U replusr -P --wal-method=stream
       environment:
-        PGPASSWORD: "1"  # If you need to pass the password for the replication user
+        PGPASSWORD: "1" 
 
     - name: Chown data directory
       become: yes

@@ -25,7 +25,7 @@ variable "count_instance" {
   description = "Number of EC2 instances to create"
   type        = number
 }
-
+# variable "ssh_key_address" {}
 
 #Security Group variables
 variable "sg_name" {}
@@ -57,39 +57,3 @@ variable "egress_rule" {
 variable "subnets" {
   type = list(string)
 }
-
-# #Application Load balancer Variables 
-# variable "lb_name" {}
-# variable "lb_internal" {}
-# variable "lb_load_balancer_type" {}
-# variable "lb_enable_deletion_protection" {}
-# variable "lb_tags" {}
-
-
-# #Application Load Balancer Target Group
-# variable "lbtg_name" {}
-# variable "lbtg_port" {}
-# variable "lbtg_protocol" {}
-# # variable "lbtg_vpc_id" {}
-# variable "lbtg_tags" {}
-# #health_check
-# variable "lbtg_health_check_path" {}
-# variable "lbtg_health_check_protocol" {}
-# variable "lbtg_health_check_matcher" {}
-# variable "lbtg_health_check_interval" {}
-# variable "lbtg_health_check_timeout" {}
-# variable "lbtg_healthy_threshold" {}
-# variable "lbtg_unhealthy_threshold" {}
-
-# #Load balancer Listener variables
-# # variable "lblst_load_balancer_arn" {}
-# variable "lblst_port" {}
-# variable "lblst_protocol" {}
-# #default_action
-# variable "lblst_default_action_type" {}
-# # variable "lblst_default_action_target_group_arn" {}
-
-
-
-# #Load balancer target group attachment
-# variable "lbtgatt_port" {}

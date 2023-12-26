@@ -91,7 +91,7 @@
       loop:
         - { line: 'host    all             all             0.0.0.0/0               md5' }
         - { line: '#       user-name		                   standby-IP' }
-        # - { line: 'host    replication     replusr         {{ ip_server2 }}/32      trust' }
+        - { line: 'host    replication     replusr         {{ ip_server2 }}/32      trust' }
 
     - name: Restart PostgreSQL
       become: yes
