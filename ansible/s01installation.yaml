@@ -1,6 +1,7 @@
 ---
 - name: Installation PosgtreSQL and prepare for Stream Replication
   hosts: server2
+  connection: local
   become: yes
   vars_files:
     - vars.yaml

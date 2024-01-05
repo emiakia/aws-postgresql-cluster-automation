@@ -54,14 +54,14 @@ default_sg   = "sg-0a28a74fed00b7df4"
 backend-bucket = "dev-terraform-tutorial"
 backend-key    = "build/airflow/terraform.tfstate"
 created_by     = "Terraform"
-user_data = <<-EOF
-            #!/bin/bash
-            yum update -y
-            yum install -y httpd
-            systemctl start httpd
-            systemctl enable httpd
-            echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
-            EOF
+# user_data = <<-EOF
+#             #!/bin/bash
+#             yum update -y
+#             yum install -y httpd
+#             systemctl start httpd
+#             systemctl enable httpd
+#             echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
+#             EOF
 
 
 

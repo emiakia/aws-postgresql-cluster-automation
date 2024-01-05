@@ -1,6 +1,7 @@
 ---
 - name: Post Installation PostgreSQL on Standby
   hosts: server2
+  connection: local
   become: yes
   vars_files:
     - vars.yaml

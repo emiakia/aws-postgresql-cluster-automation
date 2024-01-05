@@ -26,8 +26,8 @@ module "ec2" {
   tags       = var.tags
   created_by = var.created_by
 
-  user_data = var.user_data
-
+  # user_data = var.user_data
+  user_data = file("./bash/bash-postgres-${count.index}.sh")
 }
 
 # # Load Balancer and Target Group Configuration

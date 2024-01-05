@@ -2,8 +2,8 @@
 # vars.yaml
 
 # Hostnames
-hostname_server1: "postgres01"
-hostname_server2: "postgres02"
+# hostname_server1: "postgres01"
+# hostname_server2: "postgres02"
 
 # IPs
 ip_server1: 'PPP'

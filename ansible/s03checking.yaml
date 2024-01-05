@@ -1,6 +1,7 @@
 ---
 - name: Check Standby
   hosts: server2
+  connection: local
   become: yes
   vars_files:
     - vars.yaml
