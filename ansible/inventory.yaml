@@ -4,6 +4,6 @@ all:
       ansible_host: "{{ ip_server1 }}"
     server2:
       ansible_host: "{{ ip_server2 }}"
-  vars:
-    ansible_user: "{{ ssh_user }}"
+  # vars:
+  #   ansible_user: "{{ ssh_user }}"
 
