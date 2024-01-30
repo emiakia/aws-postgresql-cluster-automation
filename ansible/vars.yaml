@@ -13,7 +13,7 @@ ip_server2: 'SSS'
 # SSH configuration
 ssh_user: "UUU"
 
-ssh_key_path: "/home/{{ ssh_user }}/.ssh/id_rsa.pub"
+# ssh_key_path: "/home/{{ ssh_user }}/.ssh/id_rsa.pub"
 
 
 # # User and Password of MySQL 
