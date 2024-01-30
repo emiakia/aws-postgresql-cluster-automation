@@ -1,6 +1,6 @@
 ---
 - name: Check Primay
-  hosts: server1
+  # hosts: server1
   become: yes
   vars_files:
     - vars.yaml
