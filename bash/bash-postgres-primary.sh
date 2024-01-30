@@ -3,7 +3,7 @@
 # local_ip=$(hostname -I | awk '{print $1}')
 # echo $local_ip
 
-ssh_user=whoami
+ssh_user=$(whoami)
 echo $ssh_user
 
 
