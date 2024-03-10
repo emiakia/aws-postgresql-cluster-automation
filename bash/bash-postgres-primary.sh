@@ -13,7 +13,7 @@ wget https://raw.githubusercontent.com/emiakia/aws_components_ec2_postgres_insta
 wget https://raw.githubusercontent.com/emiakia/aws_components_ec2_postgres_install_and_ha/main/ansible/vars.yaml
 wget https://raw.githubusercontent.com/emiakia/aws_components_ec2_postgres_install_and_ha/main/ansible/inventory.yaml
 
-sed -i "s/ip_server1: \"XXX\"/ip_server1: \"$local_ip\"/" vars.yaml
+sed -i "s/PPP/SSS/" vars.yaml
 
 # Define the path to your Ansible playbook
 PLAYBOOK_PATH="./p00install-postgres-for-primary.yaml
