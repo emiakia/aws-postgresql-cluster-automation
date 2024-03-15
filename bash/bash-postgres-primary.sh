@@ -1,7 +1,7 @@
 #!/bin/bash
 
 local_ip=$(hostname -I | awk '{print $1}')
-
+echo $local_ip
 
 # Get playbook from Github
 wget https://raw.githubusercontent.com/emiakia/aws_components_ec2_postgres_install_and_ha/main/ansible/p00install-postgres-for-primary.yaml
@@ -13,7 +13,7 @@ wget https://raw.githubusercontent.com/emiakia/aws_components_ec2_postgres_insta
 wget https://raw.githubusercontent.com/emiakia/aws_components_ec2_postgres_install_and_ha/main/ansible/vars.yaml
 wget https://raw.githubusercontent.com/emiakia/aws_components_ec2_postgres_install_and_ha/main/ansible/inventory.yaml
 
-sed -i "s/PPP/SSS/" vars.yaml
+sed -i "s/PPP/$local_ip/" vars.yaml
 
 # Define the path to your Ansible playbook
 PLAYBOOK_PATH="./p00install-postgres-for-primary.yaml
