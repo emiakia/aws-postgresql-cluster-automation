@@ -1,0 +1,37 @@
+---
+- name: Installation PosgtreSQL and prepare for Stream Replication
+  hosts: server1
+  become: yes
+  vars_files:
+    - vars.yaml
+  tasks:
+    - name: Update APT package
+      apt:
+        update_cache: yes
+    - name: Install wget and gnupg
+      apt:
+        name:
+          - wget
+          - gnupg
+        state: present
+    - name: Install PostgreSQL 16 and PostgreSQL contrib package
+      apt:
+        name:
+          - postgresql-16
+          - postgresql-contrib-16
+        state: present
+    - name: Check PostgreSQL service status
+      systemd:
+        name: postgresql
+        state: started
+      register: postgresql_status
+
+    - name: Display PostgreSQL service status
+      debug:
+        var: postgresql_status
+
+    - name: Install PostgreSQL client
+      apt:
+        name: postgresql-client
+        state: present
+  

@@ -1,0 +1,10 @@
+---
+- name: Run Installation Primary
+  import_playbook: p01installation.yml
+
+- name: Run Post Installation Primary
+  import_playbook: p02post-installation.yml
+
+- name: Run Checking Primary
+  import_playbook: p03checking.yml
+

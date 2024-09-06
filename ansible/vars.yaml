@@ -1,0 +1,23 @@
+---
+# vars.yaml
+
+# Hostnames
+hostname_server1: "postgres01"
+hostname_server2: "postgres02"
+
+# IPs
+ip_server1: "XXX"
+ip_server2: "XXX"
+
+
+# SSH configuration
+ssh_user: "kia"
+
+ssh_key_path: "/home/{{ ssh_user }}/.ssh/id_rsa.pub"
+
+
+# # User and Password of MySQL 
+new_user: "kiausr"
+new_user_password: "123"
+new_db: "kiadb"
+db_owner: "{{ new_user }}"

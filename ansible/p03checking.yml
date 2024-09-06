@@ -1,0 +1,16 @@
+---
+- name: Check Primay
+  hosts: server1
+  become: yes
+  vars_files:
+    - vars.yaml
+  tasks:
+    - name: Run pg_stat_replication query
+      become: yes
+      become_user: postgres
+      command: psql -x -c "select * from pg_stat_replication;"
+      register: query_output
+
+    - name: Display query output
+      debug:
+        var: query_output.stdout

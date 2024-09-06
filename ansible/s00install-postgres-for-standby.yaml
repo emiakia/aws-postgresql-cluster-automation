@@ -1,0 +1,10 @@
+---
+- name: Run Installation Standby
+  import_playbook: s01installation.yml
+
+- name: Run Post Installation Standby
+  import_playbook: s02post-installation.yml
+
+- name: Run Checking Standby
+  import_playbook: s03checking.yml
+
